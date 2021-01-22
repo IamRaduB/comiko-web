@@ -1,0 +1,9 @@
+<div class="card text-white comic" (mouseover)="hover = true" (mouseleave)="hover = false">
+  <img class="card-img comic-thumbnail" [src]="comic.thumbnailUrl" />
+  <div class="card-img-overlay comic-info" (click)="goToComic()">
+    <div class="comic-actions" *ngIf="hover === true">
+      <button class="btn btn-primary" type="button"><span class="icon-054"></span></button>
+      <button class="btn btn-danger" type="button"><span class="icon-030"></span></button>
+    </div>
+  </div>
+</div>

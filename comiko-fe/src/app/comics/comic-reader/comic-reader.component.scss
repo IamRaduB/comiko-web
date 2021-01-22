@@ -1,0 +1,71 @@
+@import "src/assets/stylesheets/basics";
+
+.reader {
+  & .reader-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    position: fixed;
+    right: 0;
+
+    & .reader-action {
+      margin-right: 20px;
+      cursor: pointer;
+      font-size: 1.1rem;
+
+      &:hover {
+        color: $info;
+      }
+
+      &.active {
+        color: $success;
+      }
+
+      &--page {
+        width: 100px;
+
+        & .form-control:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  &-page {
+    height: 100vh;
+
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  & img {
+    height: 100%;
+    width: auto;
+
+    &.center-vertically {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    &.zoom-1 {
+      transform: scale(1.25);
+    }
+
+    &.zoom-2 {
+      transform: scale(1.5);
+    }
+
+    &.zoom-3 {
+      transform: scale(1.75);
+    }
+
+    &.zoom-4 {
+      transform: scale(2);
+    }
+  }
+}

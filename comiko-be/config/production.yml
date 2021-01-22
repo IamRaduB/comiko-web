@@ -1,0 +1,5 @@
+db:
+  synchronize: false
+
+jwt:
+  secret: '_*~&$Pyz6/QQy^d~kQ8~6RzXZKpDE(Iq--e/91k`([Ob@]{w_s[:M,Zv}lF;QwV'

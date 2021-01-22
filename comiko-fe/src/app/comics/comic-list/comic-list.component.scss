@@ -1,0 +1,33 @@
+@import "src/assets/stylesheets/basics";
+
+.comicLibrary {
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+  }
+}
+
+.createComic {
+  padding: 1.5rem;
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $dark;
+    color: $white;
+    padding: .5rem;
+
+    & .close:hover {
+      color: white;
+    }
+
+    & h2 {
+      margin-bottom: 0;
+      font-family: Roboto, sans-serif;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav opened mode="over"
+               [fixedBottomGap]="0" [fixedTopGap]="0" [fixedInViewport]="true"
+               [(opened)]="sidenavState" disableClose>
+    <div class="createComic-title">
+      <h2>Create Comic</h2>
+      <span class="close close--noMargin icon-057" (click)="toggleSidenav()"></span>
+    </div>
+    <div class="createComic">
+      <form [formGroup]="createComicForm" (ngSubmit)="submitForm()">
+        <app-upload type="comics" (result)="onFileUpload($event)"></app-upload>
+        <mat-form-field appearance="standard">
+          <mat-label>Name</mat-label>
+          <input type="text" formControlName="name" matInput>
+        </mat-form-field>
+
+        <button class="btn btn-block"
+                [disabled]="createComicForm.invalid"
+                [ngClass]="{
+                  'btn-outline-success': createComicForm.valid,
+                  'btn-outline-secondary': createComicForm.invalid
+                  }"
+        ><span
+          [ngClass]="{
+            'icon-012': isLoading,
+            'icon-055': !isLoading && !submitted
+          }"
+        ></span> Save
+        </button>
+      </form>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="container comicLibrary">
+      <div class="jumbotron comicLibrary-title">
+        <h1><span class="icon-079"></span> Library</h1>
+        <button class="btn btn-outline-dark" type="button" (click)="toggleSidenav()"><span class="icon-059"></span> Create comic</button>
+      </div>
+
+      <div class="row row-cols-4" *ngIf="comics$ | async as comics; else loading">
+        <div class="col" *ngFor="let comic of comics">
+          <app-comic [comic]="comic"></app-comic>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #loading>Loading...</ng-template>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

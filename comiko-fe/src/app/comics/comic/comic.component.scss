@@ -1,0 +1,19 @@
+@import "src/assets/stylesheets/basics";
+
+.comic {
+  & .comic-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    & .comic-actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    & button {
+      border-radius: 50%;
+    }
+  }
+}

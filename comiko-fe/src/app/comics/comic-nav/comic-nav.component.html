@@ -1,0 +1,11 @@
+<div id="comicNav" class="list-group list-group-flush comicNav" *ngIf="selectedComic$ | async as comic">
+  <div><span class="close icon-057" (click)="close()"></span></div>
+  <div class="list-group-item list-group-item-action comicNav-img"
+       *ngFor="let page of comic.pages; let i = index;"
+       [ngClass]="{active: i === comic.selectedPageIndex}"
+       (click)="selectPage(i)"
+  >
+    <img [appLoadImage]="visibilityStatus[i] === intersectionStatuses.VISIBLE" [page]="page"
+         appIntersectionObserver [intersectionDebounce]="0" (visibilityChanged)="onVisibilityChanged(i, $event)">
+  </div>
+</div>

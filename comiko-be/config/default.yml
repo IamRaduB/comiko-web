@@ -1,0 +1,14 @@
+log:
+  errPath: '/logs/hovrcat/err.log'
+  logPath: '/logs/hovrcat/info.log'
+
+server:
+  port: 3000
+
+db:
+  type: 'mysql'
+  port: 3306
+  database: 'hovrcat'
+
+jwt:
+  expiresIn: 3600

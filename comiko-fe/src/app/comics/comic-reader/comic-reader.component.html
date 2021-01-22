@@ -1,0 +1,51 @@
+<div class="reader"
+     *ngIf="selectedComic$ | async as comic; else noInfo">
+  <div class="reader-actions">
+    <a class="reader-action" aria-label="Toggle thumbnails"
+       [ngClass]="{active: thumbnailsVisible}"
+       (click)="toggleThumbnailsDisplay()"
+    ><span class="icon-248"></span></a>
+
+    <a class="reader-action" aria-label="Zoom in"
+       (click)="zoomIn()"
+       [ngClass]="{
+        disabled: zoomLevel === maxZoomLevel
+      }"><span class="icon-087"></span></a>
+    <a class="reader-action" aria-label="Zoom out"
+       [ngClass]="{
+        disabled: zoomLevel === 0
+      }"
+       (click)="zoomOut()"><span class="icon-088"></span></a>
+
+    <a class="reader-action" aria-label="Next" (click)="nextPage()"><span class="icon-276"></span></a>
+    <a class="reader-action" aria-label="Previous" (click)="previousPage()"><span class="icon-277"></span></a>
+
+    <form [formGroup]="pageForm" (ngSubmit)="goToPage()">
+      <div class="input-group reader-action reader-action--page">
+        <input type="text" class="form-control form-control-sm" placeholder="Page" aria-label="Page"
+               formControlName="page">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary btn-sm" type="submit">
+            <span class="icon-283"></span></button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class=" reader-page">
+    <img [src]="comic.pages[comic.selectedPageIndex]"
+         class="img-fluid"
+         [ngClass]="{
+          'center-vertically': true,
+          'zoom-1': zoomLevel === 1,
+          'zoom-2': zoomLevel === 2,
+          'zoom-3': zoomLevel === 3,
+          'zoom-4': zoomLevel === 4
+         }"
+         cdkDrag
+         [cdkDragDisabled]="zoomLevel === 0"
+    />
+  </div>
+</div>
+
+<ng-template #noInfo>Select a page</ng-template>

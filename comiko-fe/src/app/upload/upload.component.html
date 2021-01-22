@@ -1,0 +1,13 @@
+<div class="upload">
+  <div class="form-group">
+    <input id="fileInput" class="inputFile" type="file" (change)="uploadFile($event)">
+    <label for="fileInput" class="btn btn-outline-info"><span class="icon-235"></span> {{uploadLabel}}</label>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress form-group" *ngIf="(progress$ | async) > 0">
+    <div class="progress-bar progress-bar-animated bg-success" role="progressbar"
+         [style.width.%]="(progress$ | async)">
+    </div>
+  </div>
+</div>

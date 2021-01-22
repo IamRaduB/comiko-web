@@ -1,0 +1,19 @@
+@import "src/assets/stylesheets/basics";
+
+.comicNav {
+  @include make-col(12);
+  padding: 10px;
+
+  &-img {
+    height: 120px;
+
+    & img {
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      object-fit: scale-down;
+      width: 100%;
+    }
+  }
+}

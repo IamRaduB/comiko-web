@@ -1,0 +1,12 @@
+<div class="viewComic">
+  <div class="viewComic-nav" *ngIf="thumbnailsVisible$ | async ">
+    <app-comic-nav></app-comic-nav>
+  </div>
+
+  <div class="viewComic-reader" [ngClass]="{
+    'viewComic-reader': thumbnailsVisible$ | async,
+    'viewComic-reader--noThumbnails': !(thumbnailsVisible$ | async)
+  }">
+    <router-outlet name="reader"></router-outlet>
+  </div>
+</div>

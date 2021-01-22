@@ -1,0 +1,6 @@
+comiko-be/node_modules
+comiko-be/dist
+comiko-fe/node_modules
+comiko-fe/dist
+
+/.idea

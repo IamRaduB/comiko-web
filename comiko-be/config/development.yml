@@ -1,0 +1,13 @@
+log:
+  errPath: './logs/err.log'
+  logPath: './logs/info.log'
+
+db:
+  host: 'localhost'
+  username: 'root'
+  password: 'admin'
+  port: '3306'
+  synchronize: true
+
+jwt:
+  secret: 'raduisawesome'
